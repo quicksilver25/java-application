@@ -48,7 +48,7 @@ pipeline {
                 script {
 
                     // Update image tag in deployment.yaml
-                    sh "sed -i 's|453229563354.dkr.ecr.us-west-2.amazonaws.com/java-application:[0-9]*| ${DOCKER_IMAGE}:${BUILD_NUMBER}|g' deployment/deployment.yaml"
+                    sh "sed -i 's|453229563354.dkr.ecr.us-west-2.amazonaws.com/java-application:[0-9]*|${DOCKER_IMAGE}:${BUILD_NUMBER}|g' deployment/deployment.yaml"
 
                     // Commit and push back to GitHub
                     withCredentials([usernamePassword(credentialsId: 'java_repo_creds',usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')])
